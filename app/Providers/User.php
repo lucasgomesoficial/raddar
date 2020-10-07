@@ -39,17 +39,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
+
     public static function adminlte_image()
     {
-        return url('public/storage/users/'.auth()->user()->image);
+        return url('public/storage/users/' . auth()->user()->image);
     }
 
     public static function adminlte_desc()
     {
         return auth()->user()->cargo;
     }
-    
+
     public function adminlte_profile_url()
     {
         return 'profile/perfil';
@@ -59,12 +59,12 @@ class User extends Authenticatable
     {
         return (storage_path('app/public/group/'.$user->image));
     }*/
-    
+
     /*public static function adminlte_grupo()
     {
         return auth()->user()->grupo;
     }*/
-    
+
     /*
      *
      * Funções de Relacionamentos
@@ -75,7 +75,12 @@ class User extends Authenticatable
     {
         return $this->hasOne(\App\Models\Role::class, 'id', 'role_id');
     }
-    
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Role', 'role_user');
+    }
+
     /*
      *
      * Funções Auxiliares
@@ -84,21 +89,26 @@ class User extends Authenticatable
      */
     public function hasPermission(Permission $permission)
     {
-        return $this->hasAnyRoles($permission->roles);
+        foreach (auth()->user()->roles->first()->permissions as $current) {
+            if ($current->name == $permission->name) {
+                return true;
+            }
+        }
+        return false;
+        //return $this->hasAnyRoles($permission->roles);
     }
-    
+
     public function hasAnyRoles($roles)
     {
-        foreach ( $roles as $role )
-        {
-            if($role['name'] == $this->role->name)
-            {
+        foreach ($roles as $role) {
+            dd($role);
+            if ($role['name'] == $this->role->name) {
                 return true;
             }
         }
         return false;
     }
-    
+
     public function product()
     {
         return $this->hasOne(Product::class, 'id', 'user_id');
