@@ -75,6 +75,11 @@ class User extends Authenticatable
     {
         return $this->hasOne(\App\Models\Role::class, 'id', 'role_id');
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Role', 'role_user');
+    }
     
     /*
      *
@@ -84,8 +89,15 @@ class User extends Authenticatable
      */
     public function hasPermission(Permission $permission)
     {
-        return $this->hasAnyRoles($permission->roles);
+        foreach (auth()->user()->roles->first()->permissions as $current) {
+            if ($current->name == $permission->name) {
+                return true;
+            }
+        }
+        return false;
+        //return $this->hasAnyRoles($permission->roles);
     }
+
     
     public function hasAnyRoles($roles)
     {
