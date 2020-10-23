@@ -39,17 +39,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
+
     public static function adminlte_image()
     {
-        return url('public/storage/users/'.auth()->user()->image);
+        return url('public/storage/users/' . auth()->user()->image);
     }
 
     public static function adminlte_desc()
     {
         return auth()->user()->cargo;
     }
-    
+
     public function adminlte_profile_url()
     {
         return 'profile/perfil';
@@ -59,12 +59,12 @@ class User extends Authenticatable
     {
         return (storage_path('app/public/group/'.$user->image));
     }*/
-    
+
     /*public static function adminlte_grupo()
     {
         return auth()->user()->grupo;
     }*/
-    
+
     /*
      *
      * Funções de Relacionamentos
@@ -80,7 +80,11 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Role', 'role_user');
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 1cf2b09dc94656390b3cdc98d542f8d7bf17e71b
     /*
      *
      * Funções Auxiliares
@@ -98,19 +102,21 @@ class User extends Authenticatable
         //return $this->hasAnyRoles($permission->roles);
     }
 
+<<<<<<< HEAD
     
+=======
+>>>>>>> 1cf2b09dc94656390b3cdc98d542f8d7bf17e71b
     public function hasAnyRoles($roles)
     {
-        foreach ( $roles as $role )
-        {
-            if($role['name'] == $this->role->name)
-            {
+        foreach ($roles as $role) {
+            dd($role);
+            if ($role['name'] == $this->role->name) {
                 return true;
             }
         }
         return false;
     }
-    
+
     public function product()
     {
         return $this->hasOne(Product::class, 'id', 'user_id');

@@ -104,4 +104,6 @@ class User extends Authenticatable
     {
         return $this->hasOne(Product::class, 'user_id', 'id');
     }
+
+    
 }
