@@ -80,11 +80,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Role', 'role_user');
     }
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 1cf2b09dc94656390b3cdc98d542f8d7bf17e71b
     /*
      *
      * Funções Auxiliares
@@ -102,10 +98,7 @@ class User extends Authenticatable
         //return $this->hasAnyRoles($permission->roles);
     }
 
-<<<<<<< HEAD
     
-=======
->>>>>>> 1cf2b09dc94656390b3cdc98d542f8d7bf17e71b
     public function hasAnyRoles($roles)
     {
         foreach ($roles as $role) {

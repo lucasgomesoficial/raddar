@@ -13,6 +13,16 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
     Route::get('comercial-varejo/meta-realizado', 'VarejoController@varejo')->name('admin.varejo');
     Route::get('resultados/gerencial-grupo', 'GerencialController@show')->name('admin.gerencial');
     Route::get('planos/planos-de-acao', 'ActionController@action')->name('admin.action');
+
+    Route::get('storage/users/{file}', function ($file) {
+      $path = storage_path('app/public' . DIRECTORY_SEPARATOR . 'users' . DIRECTORY_SEPARATOR . $file);
+      return response()->file($path);
+    });
+
+    Route::get('storage/group/{file}', function ($file) {
+      $path = storage_path('app/public' . DIRECTORY_SEPARATOR . 'group' . DIRECTORY_SEPARATOR . $file);
+      return response()->file($path);
+    });
     
     Route::post('profile/perfil', 'PerfilController@perfilUpdate')->name('admin.perfilup');
     Route::get('profile/perfil', 'PerfilController@perfil')->name('admin.perfil');
