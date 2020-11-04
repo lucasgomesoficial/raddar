@@ -249,7 +249,7 @@ return [
             'icon'        => 'fas fa-cog',
             // 'label'       => 4,
             'label_color' => 'success',
-            'can'  => 'manage-Administrativo',
+            'can'  => 'adm',
         ],
         [
             'text' => 'blog',
@@ -284,7 +284,7 @@ return [
                     'url'  => 'planos/planos-de-acao',
                 ],
             ],
-            // 'can'  => 'manage-Resultados',
+            'can'  => 'plan_action',
         ],
         [
             'text'    => 'Resultados',
@@ -297,10 +297,10 @@ return [
                 [
                     'text' => 'Previsto x Realizado',
                     'url'  => '#',
-                    'can'  => 'manage-Previsto x Realizado',
+                    'can'  => 'meta_realizado',
                 ],
             ],
-            // 'can'  => 'manage-Resultados',
+            'can'  => 'gere_group',
         ],
         [
             'text'    => 'Comercial Varejo',
@@ -316,7 +316,7 @@ return [
                     // 'can'  => 'manage-Indicadores Comerciais',
                 ],
             ],
-            // 'can'  => 'manage-Comercial - Varejo',
+            'can'  => 'comer_varejo',
         ],
         [
             'text'    => 'Comercial VD',
@@ -327,7 +327,7 @@ return [
                     'url'  => 'comercial-vd/indicadores-vd',
                 ],
             ],
-            // 'can'  => 'manage-Comercial - VD',
+            'can'  => 'indi_vd',
         ],
         [
             'text'    => 'Estoque',
@@ -343,7 +343,7 @@ return [
                     'can'  => 'manage-Sugestão de Compra',
                 ],
             ],
-            // 'can'  => 'manage-Estoque',
+            'can'  => 'storage_map',
         ],
         [
             'text'    => 'Fluxo de Caixa',
