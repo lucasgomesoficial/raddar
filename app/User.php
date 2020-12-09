@@ -83,21 +83,20 @@ class User extends Authenticatable
     
     public function hasAnyRoles($roles)
     {
-        /*foreach ( $roles as $role )
-        {
-            if($role['name'] == $this->role->name)
-            {
-                return true;
-            }
+      /*foreach ($roles as $role) {
+        // dd($role);
+        if ($role['name'] == $this->role->name) {
+          return true;
         }
-        return false;*/
-        
-        if(is_array($roles) || is_object($roles)) 
-        {
-            return !! $roles->intersect($this->roles)->count();
-        }
-        
-        return $this->roles->contains('name', $roles);
+      }
+      return false;*/
+      
+      if(is_array($roles) || is_object($roles)) 
+      {
+        return !! $roles->intersect($this->roles)->count();
+      }
+      
+      return $this->roles->contains('name', $roles);
     }
     
     public function product()
@@ -105,5 +104,9 @@ class User extends Authenticatable
         return $this->hasOne(Product::class, 'user_id', 'id');
     }
 
+    public function user()
+    {
+      return $this->belongsToMany(User::class, "user_id", 'id');
+    }
     
 }

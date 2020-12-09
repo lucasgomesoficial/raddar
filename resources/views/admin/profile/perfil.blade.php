@@ -241,9 +241,10 @@
                 </div>
 
                 <div class="tab-pane" id="settings">
-                  <form class="form-horizontal" action="{{ route('admin.perfilup') }}" method="POST" enctype="multipart/form-data">
-              
-                    {!! csrf_field() !!}
+                  <form class="form-horizontal" action="{{ route('admin.perfilup') }}" method="post" enctype="multipart/form-data">
+
+                    @method('PUT')
+                    @csrf
                     <div class="form-group row">
                       <label for="name" class="col-sm-2 col-form-label">Nome</label>
                       <div class="col-sm-10">

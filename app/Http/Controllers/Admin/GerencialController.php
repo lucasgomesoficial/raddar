@@ -16,11 +16,6 @@ class GerencialController extends Controller
     $id = auth()->user()->id;
     $products = Product::where('user_id', $id)->get();
     
-    // $this->authorize('auth-product', $products);
-    /*if(Gate::denies('auth-product', $products))
-        abort(403, 'Unauthorized');*/
-    
-    // dd($products);
     return view('admin.resultados.gerencial', ['products' => $products]);
   }
 }

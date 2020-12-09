@@ -242,10 +242,11 @@ return [
             'icon'        => 'fas fa-home',
             // 'label'       => 4,
             'label_color' => 'success',
+            'can'  => 'principal',
         ],
         [
-            'text'        => 'Administrativo',
-            'url'         => 'setup',
+            'text'        => 'Área Adiministrativa',
+            'url'         => 'administrativo',
             'icon'        => 'fas fa-cog',
             // 'label'       => 4,
             'label_color' => 'success',
@@ -371,6 +372,7 @@ return [
             'icon'        => 'fas fa-calendar-alt',
             // 'label'       => 4,
             'label_color' => 'success',
+            'can'  => 'agenda',
         ],
         [
             'text'        => 'Videos',
@@ -378,7 +380,7 @@ return [
             'icon'        => 'fas fa-video',
             // 'label'       => 4,
             'label_color' => 'success',
-            'can'  => 'manage-videos',
+            'can'  => 'videos',
         ],
         [
             'text'        => 'Trello',
@@ -386,6 +388,7 @@ return [
             'icon'        => 'fas fa-project-diagram',
             // 'label'       => 4,
             'label_color' => 'success',
+            'can'  => 'trello',
         ],
         // ['header' => 'ALERTAS'],
         // [
