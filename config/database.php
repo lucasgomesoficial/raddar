@@ -50,12 +50,12 @@ return [
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'raddar'), // old value: 'forge'
             'username' => env('DB_USERNAME', 'root'), // old value: 'forge'
-            'password' => env('DB_PASSWORD', 'root'), // old value: ''
+            'password' => env('DB_PASSWORD', ''), // old value: ''
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8', // old value: 'utf8mb4'
             'collation' => 'utf8_unicode_ci', // old value: 'utf8mb4_unicode_ci'
             'prefix' => '',
-            'prefix_indexes' => true, 
+            'prefix_indexes' => true,
             'strict' => true, // old value: true
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
